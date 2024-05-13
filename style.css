@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #134074; 
+    margin: 0;
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+    color: #ffffff; 
+}
+
+#symptomForm {
+    background-color: #ffffff; 
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    text-align: center;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.checkbox-container {
+    flex-basis: calc(33.33% - 10px);
+    margin-bottom: 10px;
+    margin: 5px;
+}
+
+input[type="checkbox"] {
+    display: none;
+    border-radius: 10px;
+}
+
+label {
+    display: block;
+    padding: 10px 20px;
+    margin-bottom: 0;
+    cursor: pointer;
+    background-color: #ffffff; 
+    border: 2px solid #134074; 
+    border-radius: 5px;
+    color: #134074; 
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+label:hover {
+    background-color: #f2f8ff; 
+}
+
+input[type="checkbox"]:checked + label {
+    background-color: #134074; 
+    color: #ffffff; 
+    border-color: #134074; 
+    border-radius: 10px;
+}
+
+button {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #134074; 
+    color: #ffffff; 
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3; 
+}
