@@ -99,17 +99,29 @@ const diseases = [
 ];
 
 function findDiseases(symptoms) {
-    const possibleDiseases = [];
+    const matchedDiseases = [];
     
     diseases.forEach(disease => {
-        const isPossible = disease.symptoms.every(symptom => symptoms.includes(symptom));
-        if (isPossible) {
-            possibleDiseases.push(disease);
+        const hasMatchedSymptom = disease.symptoms.some(symptom => symptoms.includes(symptom));
+        if (hasMatchedSymptom) {
+            matchedDiseases.push(disease);
         }
     });
     
-    return possibleDiseases;
+    return matchedDiseases;
 }
+
+function generatePopupMessage(possibleDiseases, checkedSymptoms) {
+    let message = "Anda mungkin menderita penyakit berikut:\n\n";
+    possibleDiseases.forEach((disease, index) => {
+        const matchedSymptoms = disease.symptoms.filter(symptom => checkedSymptoms.includes(symptom));
+        const percentage = (matchedSymptoms.length / disease.symptoms.length) * 100;
+        message += `${disease.name}: ${percentage.toFixed(2)}%\n`;
+    });
+    return message;
+}
+
+
 
 function getCheckedSymptoms() {
     const checkedSymptoms = [];
@@ -133,17 +145,17 @@ document.getElementById('getCheckedSymptomsBtn').addEventListener('click', () =>
     const possibleDiseases = findDiseases(checkedSymptoms);
     displayPossibleDiseases(possibleDiseases);
     
-    
-    const message = generatePopupMessage(possibleDiseases);
+    const message = generatePopupMessage(possibleDiseases, checkedSymptoms);
     alert(message);
 });
 
 
-function generatePopupMessage(possibleDiseases) {
-    let message = "Anda mungkin menderita penyakit berikut:\n\n";
-    possibleDiseases.forEach((disease, index) => {
-        const symptomsString = disease.symptoms.join(", ");
-        message += `${disease.name}`;
-    });
-    return message;
-}
+
+// function generatePopupMessage(possibleDiseases) {
+//     let message = "Anda mungkin menderita penyakit berikut:\n\n";
+//     possibleDiseases.forEach((disease, index) => {
+//         const symptomsString = disease.symptoms.join(", ");
+//         message += `${disease.name}`;
+//     });
+//     return message;
+// }
