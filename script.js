@@ -112,14 +112,30 @@ function findDiseases(symptoms) {
 }
 
 function generatePopupMessage(possibleDiseases, checkedSymptoms) {
-    let message = "Anda mungkin menderita penyakit berikut:\n\n";
-    possibleDiseases.forEach((disease, index) => {
+    // Membuat array untuk menyimpan penyakit beserta persentase cocok
+    const diseasesWithPercentage = [];
+
+    possibleDiseases.forEach(disease => {
+        // Menghitung jumlah gejala yang cocok
         const matchedSymptoms = disease.symptoms.filter(symptom => checkedSymptoms.includes(symptom));
         const percentage = (matchedSymptoms.length / disease.symptoms.length) * 100;
+
+        // Menambahkan penyakit beserta persentase ke array
+        diseasesWithPercentage.push({ disease, percentage });
+    });
+
+    // Mengurutkan penyakit berdasarkan persentase cocok dari yang tertinggi ke terendah
+    diseasesWithPercentage.sort((a, b) => b.percentage - a.percentage);
+
+    // Membuat pesan berdasarkan urutan penyakit
+    let message = "Anda mungkin menderita penyakit berikut:\n\n";
+    diseasesWithPercentage.forEach(({ disease, percentage }) => {
         message += `${disease.name}: ${percentage.toFixed(2)}%\n`;
     });
+
     return message;
 }
+
 
 
 
