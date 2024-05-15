@@ -4,37 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generated Table Example</title>
+    
+    <link rel="stylesheet" href="result.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">   
     <style>
         /* Custom CSS styles */
         body {
             padding: 20px;
         }
-        h2 {
+        h4 {
+            font-weight: bold;
+            margin-top: 20px;
             margin-bottom: 20px;
         }
     </style>
 </head>
-<body>
+<body class="body">
+<center>
 
-<div class="container">
-    <h2>Generated Table</h2>
 
-    <div class="table-responsive">
-        <table class="table table-striped" id="generatedTable">
-            <thead>
-                <tr>
-                    <th scope="col">Nama Penyakit</th>
-                    <th scope="col">Persentase Cocok</th>
-                </tr>
-            </thead>
-            <tbody id="generatedTableBody">
-                <!-- Rows will be generated here -->
-            </tbody>
-        </table>
+        <div class="container">
+            <h4 style="color: white;">Daftar Penyakit yang Mungkin Anda Alami</h4>
+            
+            
+            
+            
+            <div class="table-responsive">
+                <table class="table table-striped" id="generatedTable">
+                    <thead>
+                        <tr>
+                        <th scope="col">Nama Penyakit</th>
+                        <th scope="col">Persentase Cocok</th>
+                    </tr>
+                </thead>
+                <tbody id="generatedTableBody">
+                    <!-- Rows will be generated here -->
+                </tbody>
+            </table>
+            <p class="fw-bolder" id="penyakitWithHighestPercentage"></p>
+        </div>
     </div>
-</div>
-
-<script src="./result.js"></script>
+</center>
+    
+    <script src="./result.js"></script>
 </body>
 </html>
