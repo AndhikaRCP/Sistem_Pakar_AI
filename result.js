@@ -50,12 +50,14 @@ function displayHighestPercentageDisease() {
         });
 
         let message = "";
-        if(highestPercentage >= 0 && highestPercentage <= 50) {
+        if(highestPercentage >= 1 && highestPercentage <= 50) {
             message = `*Anda memiliki kemungkinan kecil mengidap penyakit ${penyakitWithHighestPercentage} dengan peluang terkena sebesar ${highestPercentage.toFixed(2)}%`;
         } else if(highestPercentage >= 51 && highestPercentage <= 99) {
             message = `*Anda memiliki kemungkinan besar mengidap penyakit ${penyakitWithHighestPercentage} dengan peluang terkena sebesar ${highestPercentage.toFixed(2)}%`;
         } else if(highestPercentage == 100) {
             message = `*Anda mengidap penyakit ${penyakitWithHighestPercentage} dengan peluang terkena sebesar ${highestPercentage.toFixed(2)}% segera periksa ke dokter!`;
+        } else {
+            message = `Anda tidak didiagnosis memiliki kemungkinan penyakit THT`;
         }
         // Adding newline
 
