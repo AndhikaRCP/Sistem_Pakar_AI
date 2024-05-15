@@ -17,8 +17,8 @@ function generateTable() {
             const cell1 = row.insertCell(0);
             const cell2 = row.insertCell(1);
             
-            cell1.textContent = index + 1;
-            cell2.textContent = `${disease.name}: ${percentage.toFixed(2)}%`;
+            cell1.textContent = `${disease.name}`;
+            cell2.textContent = `${percentage.toFixed(2)}%`;
         });
     } else {
         console.log("No data found in localStorage.");

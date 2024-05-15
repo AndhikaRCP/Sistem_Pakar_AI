@@ -3,24 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Table Generation Example</title>
-    <link rel="stylesheet" href="./style.css">
+    <title>Generated Table Example</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Custom CSS styles */
+        body {
+            padding: 20px;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
 
-<h2>Generated Table:</h2>
+<div class="container">
+    <h2>Generated Table</h2>
 
-<table id="generatedTable">
-    <thead>
-        <tr>
-            <th>Row Number</th>
-            <th>Content</th>
-        </tr>
-    </thead>
-    <tbody>
-        <!-- Rows will be generated here -->
-    </tbody>
-</table>
-        <script src="./result.js"></script>
+    <div class="table-responsive">
+        <table class="table table-striped" id="generatedTable">
+            <thead>
+                <tr>
+                    <th scope="col">Nama Penyakit</th>
+                    <th scope="col">Persentase Cocok</th>
+                </tr>
+            </thead>
+            <tbody id="generatedTableBody">
+                <!-- Rows will be generated here -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="./result.js"></script>
 </body>
 </html>
