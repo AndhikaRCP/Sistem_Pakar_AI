@@ -129,11 +129,11 @@ function generatePopupMessage(possibleDiseases, checkedSymptoms) {
 
     // Membuat pesan berdasarkan urutan penyakit
     let message = "Anda mungkin menderita penyakit berikut:\n\n";
-    diseasesWithPercentage.forEach(({ disease, percentage }) => {
-        message += `${disease.name}: ${percentage.toFixed(2)}%\n`;
-    });
-
-    return message;
+    // diseasesWithPercentage.forEach(({ disease, percentage }) => {
+    //     message += `${disease.name}: ${percentage.toFixed(2)}%\n`;
+    // });
+    return diseasesWithPercentage;
+    
 }
 
 
@@ -156,13 +156,19 @@ function displayPossibleDiseases(possibleDiseases) {
     });
 }
 
+
+
 document.getElementById('getCheckedSymptomsBtn').addEventListener('click', () => {
+    event.preventDefault();
     const checkedSymptoms = getCheckedSymptoms();
     const possibleDiseases = findDiseases(checkedSymptoms);
     displayPossibleDiseases(possibleDiseases);
     
-    const message = generatePopupMessage(possibleDiseases, checkedSymptoms);
-    alert(message);
+    const hasilPenyakit = generatePopupMessage(possibleDiseases, checkedSymptoms);
+    let dataKontans = JSON.stringify(hasilPenyakit);
+    localStorage.setItem("hasilPenyakit", dataKontans);
+    alert(hasilPenyakit);
+    window.location.href= "result.html";
 });
 
 
